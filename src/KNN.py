@@ -12,7 +12,7 @@ data_path = Path('test/')
 
 
 def read_dataset_from_csv(file):
-    csv_file = open(data_path / file, "r")
+    csv_file = open(data_path / file, "r", encoding="utf-8")
     dataset_rows = list(csv.reader(csv_file))
     csv_file.close()
     return dataset_rows
