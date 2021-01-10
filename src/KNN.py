@@ -1,6 +1,10 @@
 from pathlib import Path
 import csv
 
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -9,35 +13,51 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 data_path = Path('test/')
+dataset_file = 'train.csv'
 
+# dataset_features = standardlize_dataset(dataset_trainable)
 
-def read_dataset_from_csv(file):
-    csv_file = open(data_path / file, "r", encoding="utf-8")
-    dataset_rows = list(csv.reader(csv_file))
-    csv_file.close()
-    return dataset_rows
+def dataset_company(dataset_train):
+    Filter = (dataset_train["年月"] == 200912)
+    curr_set = set(list(dataset_train[Filter]['簡稱']))
+    selected_dataset = pd.DataFrame(columns=dataset_train.columns)
+    for company in list(curr_set):
+        Filter = (dataset_train["簡稱"] == company)
+        selected_dataset = pd.concat([selected_dataset, dataset_train[Filter]])
+    return (selected_dataset.sort_index())
 
+        
 
-def standardlize_dataset(dataset):
-    scaler = StandardScaler()
-    scaler.fit(dataset_trainable)
-    scaled_features = scaler.transform(dataset_trainable)
-    dataset_features = pd.DataFrame(
-        scaled_features, columns=dataset_trainable.columns)
-    return dataset_features
-
+def dataset_preprocessing(dataset_train):
+    return dataset_company(dataset_train)
 
 if __name__ == "__main__":
-    dataset_file = 'train.csv'
-    dataset_rows = read_dataset_from_csv(dataset_file)
 
-    dataset_train = pd.DataFrame(
-        data=dataset_rows[1:], columns=dataset_rows[0])
-    company_fields = ['證券代碼', '簡稱']
+    dataset_train = pd.read_csv(data_path / dataset_file)
+    dataset_train.index += 1
+    dataset_train = dataset_preprocessing(dataset_train)
+    dataset_train.index = range(1, len(dataset_train) + 1)
 
+    no_usage_fields = ['證券代碼', '簡稱', '年月', 'Return', 'ReturnMean_year_Label']
+
+    company_fields = ['簡稱']
+    print(dataset_train)
     # Discard fields to let dataset be trainable.
-    dataset_trainable = dataset_train.drop(company_fields, axis=1)
+    dataset_info = dataset_train.drop(
+        list(set(dataset_train.columns).difference(set(company_fields))), axis=1)
+    dataset_trainable = dataset_train.drop(no_usage_fields, axis=1)
+    dataset_label = dataset_train['ReturnMean_year_Label']
 
-    # dataset_features = standardlize_dataset(dataset_trainable)
+    train_data, test_data, train_label, test_label = \
+        train_test_split(dataset_trainable, dataset_label, test_size=0.2)
+    train_label = train_label.astype('int')
+    test_label = test_label.astype('int')
 
-    print(dataset_trainable)
+    knn_obj = KNeighborsClassifier()
+
+    knn_obj.fit(train_data, train_label)
+
+    test_pred = knn_obj.predict(test_data.sort_index())
+    test_info_data = pd.merge(dataset_info, test_data, left_index=True, right_index=True)
+    test_info_data['ReturnMean_year_Label'] = test_pred
+    print(test_info_data)
