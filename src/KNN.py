@@ -112,6 +112,13 @@ if __name__ == "__main__":
             plt.ylabel("price")
             plt.plot(years, profits[next(dict_iter)])
         plt.show()
+        print('----------------------')
+        
+        for key in stocks_dict:
+            if len(stocks_dict[key]) == 2:
+                print(key, ":", stocks_dict[key][1] - stocks_dict[key][0])
+            else:
+                print(key, ":", profits[key][-1] - profits[key][0])
 
 
     elif select_mode == 2:
