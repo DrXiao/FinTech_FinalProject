@@ -1,2 +1,6 @@
 InceptionTime
 .vscode
+__pycache__
+
+# Virtual enviroment
+venv
