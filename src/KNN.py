@@ -18,7 +18,7 @@ dataset_test_file = 'test.csv'
 
 
 def dataset_company(dataset_train):
-    Filter = (dataset_train["年月"] == 200512)
+    Filter = (dataset_train["年月"] == 200412)
     curr_set = set(list(dataset_train[Filter]['簡稱']))
     selected_dataset = pd.DataFrame(columns=dataset_train.columns)
     for company in list(curr_set):
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     train_data, test_data, train_label, test_label = \
         train_test_split(dataset_trainable, dataset_label,
-                         test_size=1, shuffle=False)
+                         test_size=0.5, shuffle=False)
     train_label = train_label.astype('int')
     test_label = test_label.astype('int')
 
@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
     threshold = train_data['收盤價(元)_年'].sum() / len(train_data)
     # print(dataset_info)
-    select_mode = 2 # int(input('1. Train Test,\n2. Formal test\t: '))
+    select_mode = 1 # int(input('1. Train Test,\n2. Formal test\t: '))
     if select_mode == 1:
         test_pred = knn_obj.predict(test_data)
         test_info_data = pd.merge(
@@ -77,13 +77,6 @@ if __name__ == "__main__":
         test_info_data = pd.merge(
             dataset_test_info, dataset_test_trainable, left_index=True, right_index=True)
         test_info_data['ReturnMean_year_Label'] = test_pred
-
-    correct = 0
-
-    for idx in range(len(test_pred)):
-        if test_pred[idx] == dataset_test_label[idx]:
-            correct += 1
-    print('Accurancy :', correct / len(test_pred))
 
     stocks_dict = {}
     profits = {}
@@ -106,7 +99,7 @@ if __name__ == "__main__":
                 if len(stocks_dict[row["簡稱"]]) < 2 and (row["收盤價(元)_年"] - stocks_dict[row["簡稱"]][0]) / stocks_dict[row["簡稱"]][0] > 0.10:  # 賣
                     stocks_dict[row["簡稱"]].append(row["收盤價(元)_年"])
                     profits[row["簡稱"]].append(row["收盤價(元)_年"])
-            elif len(stocks_dict) < 4:
+            elif (threshold * 1.2 - row["收盤價(元)_年"]) / (threshold * 1.2) > 0.05 and len(stocks_dict) < 4:
                 stocks_dict[row["簡稱"]] = [row["收盤價(元)_年"]]   # 買
                 profits[row["簡稱"]] = [row["收盤價(元)_年"]]
         if row["簡稱"] in stocks_dict.keys() and len(profits[row["簡稱"]]) < years_len:
