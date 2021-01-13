@@ -1,0 +1,260 @@
+Dataset: test/train.csv
+Maximum date of dataset: 200912
+Length of years: 13
+Filtered data: 1646
+================
+Dataset: test/test.csv
+Maximum date of dataset: 201912
+Length of years: 10
+Filtered data: 1607
+================
+Train data: 1646, Test data: 1607
+Training...
+[0]	Validation-logloss:0.69451
+[96]	Validation-logloss:0.68322
+Good stocks
+['鴻海', '中華電', '友達', '廣達', '聯電', '華碩', '仁寶', '遠傳', '台泥', '緯創', '亞泥', '和碩', '光寶科', '大聯大', '寶成', '力成', '華新', '英業達', '福懋', '興富發', '東元', '瑞昱', '創見', '豐興', '東和鋼鐵', '長興', '華邦電', '正崴', '佳格', '新纖', '瑞儀', '永豐餘', '太子', '統一實', '華固', '中鼎', '東陽', '士電', '技嘉', '聯華', '啟碁', '建大', '京元電子', '微星', '永大', '豐泰', '超豐', '國際中橡', '金寶', '三陽工業', '大成', '台表科']
+Good and cheap stocks
+['鴻海', '中華電', '友達', '廣達', '聯電', '華碩', '仁寶', '遠傳', '台泥', '緯創', '亞泥', '光寶科', '大聯大', '寶成', '華新', '英業達', '福懋', '興富發', '東元', '瑞昱', '創見', '豐興', '長興', '正崴', '新纖', '瑞儀', '永豐餘', '太子', '統一實', '華固', '中鼎', '東陽', '士電', '技嘉', '建大', '微星', '超豐', '大成', '台表科']
+Training was done.
+Return of stocks in portfolio:
+鴻海-Lump-Sum:
+	Total Return: 42.96%
+	Yearly Mean Return: 4.05%
+鴻海-DCA:
+	Total Return: 22.47%
+	Yearly Mean Return: 2.28%
+中華電-Lump-Sum:
+	Total Return: 90.05%
+	Yearly Mean Return: 7.40%
+中華電-DCA:
+	Total Return: 33.02%
+	Yearly Mean Return: 3.22%
+友達-Lump-Sum:
+	Total Return: -54.44%
+	Yearly Mean Return: -8.36%
+友達-DCA:
+	Total Return: -9.76%
+	Yearly Mean Return: -1.13%
+廣達-Lump-Sum:
+	Total Return: 73.61%
+	Yearly Mean Return: 6.32%
+廣達-DCA:
+	Total Return: 30.18%
+	Yearly Mean Return: 2.97%
+聯電-Lump-Sum:
+	Total Return: 48.16%
+	Yearly Mean Return: 4.46%
+聯電-DCA:
+	Total Return: 46.92%
+	Yearly Mean Return: 4.37%
+華碩-Lump-Sum:
+	Total Return: 76.92%
+	Yearly Mean Return: 6.54%
+華碩-DCA:
+	Total Return: 15.17%
+	Yearly Mean Return: 1.58%
+仁寶-Lump-Sum:
+	Total Return: -17.12%
+	Yearly Mean Return: -2.06%
+仁寶-DCA:
+	Total Return: 10.07%
+	Yearly Mean Return: 1.07%
+遠傳-Lump-Sum:
+	Total Return: 165.56%
+	Yearly Mean Return: 11.46%
+遠傳-DCA:
+	Total Return: 30.46%
+	Yearly Mean Return: 3.00%
+台泥-Lump-Sum:
+	Total Return: 147.67%
+	Yearly Mean Return: 10.60%
+台泥-DCA:
+	Total Return: 65.19%
+	Yearly Mean Return: 5.74%
+緯創-Lump-Sum:
+	Total Return: 8.84%
+	Yearly Mean Return: 0.95%
+緯創-DCA:
+	Total Return: 42.40%
+	Yearly Mean Return: 4.01%
+亞泥-Lump-Sum:
+	Total Return: 147.73%
+	Yearly Mean Return: 10.61%
+亞泥-DCA:
+	Total Return: 71.22%
+	Yearly Mean Return: 6.16%
+光寶科-Lump-Sum:
+	Total Return: 121.91%
+	Yearly Mean Return: 9.26%
+光寶科-DCA:
+	Total Return: 56.96%
+	Yearly Mean Return: 5.14%
+大聯大-Lump-Sum:
+	Total Return: 25.60%
+	Yearly Mean Return: 2.57%
+大聯大-DCA:
+	Total Return: 28.90%
+	Yearly Mean Return: 2.86%
+寶成-Lump-Sum:
+	Total Return: 113.06%
+	Yearly Mean Return: 8.77%
+寶成-DCA:
+	Total Return: 29.43%
+	Yearly Mean Return: 2.91%
+華新-Lump-Sum:
+	Total Return: 5.09%
+	Yearly Mean Return: 0.55%
+華新-DCA:
+	Total Return: 41.97%
+	Yearly Mean Return: 3.97%
+英業達-Lump-Sum:
+	Total Return: 143.90%
+	Yearly Mean Return: 10.41%
+英業達-DCA:
+	Total Return: 46.25%
+	Yearly Mean Return: 4.31%
+福懋-Lump-Sum:
+	Total Return: 82.88%
+	Yearly Mean Return: 6.94%
+福懋-DCA:
+	Total Return: 33.97%
+	Yearly Mean Return: 3.30%
+興富發-Lump-Sum:
+	Total Return: 130.30%
+	Yearly Mean Return: 9.71%
+興富發-DCA:
+	Total Return: 62.75%
+	Yearly Mean Return: 5.56%
+東元-Lump-Sum:
+	Total Return: 87.75%
+	Yearly Mean Return: 7.25%
+東元-DCA:
+	Total Return: 22.24%
+	Yearly Mean Return: 2.26%
+瑞昱-Lump-Sum:
+	Total Return: 444.29%
+	Yearly Mean Return: 20.71%
+瑞昱-DCA:
+	Total Return: 163.69%
+	Yearly Mean Return: 11.37%
+創見-Lump-Sum:
+	Total Return: 77.07%
+	Yearly Mean Return: 6.55%
+創見-DCA:
+	Total Return: 27.33%
+	Yearly Mean Return: 2.72%
+豐興-Lump-Sum:
+	Total Return: 66.10%
+	Yearly Mean Return: 5.80%
+豐興-DCA:
+	Total Return: 39.03%
+	Yearly Mean Return: 3.73%
+長興-Lump-Sum:
+	Total Return: 49.36%
+	Yearly Mean Return: 4.56%
+長興-DCA:
+	Total Return: 26.11%
+	Yearly Mean Return: 2.61%
+正崴-Lump-Sum:
+	Total Return: 5.52%
+	Yearly Mean Return: 0.60%
+正崴-DCA:
+	Total Return: 10.53%
+	Yearly Mean Return: 1.12%
+新纖-Lump-Sum:
+	Total Return: 13.96%
+	Yearly Mean Return: 1.46%
+新纖-DCA:
+	Total Return: 36.15%
+	Yearly Mean Return: 3.49%
+瑞儀-Lump-Sum:
+	Total Return: 302.04%
+	Yearly Mean Return: 16.72%
+瑞儀-DCA:
+	Total Return: 83.64%
+	Yearly Mean Return: 6.99%
+永豐餘-Lump-Sum:
+	Total Return: 28.03%
+	Yearly Mean Return: 2.78%
+永豐餘-DCA:
+	Total Return: 23.03%
+	Yearly Mean Return: 2.33%
+太子-Lump-Sum:
+	Total Return: 3.58%
+	Yearly Mean Return: 0.39%
+太子-DCA:
+	Total Return: 15.15%
+	Yearly Mean Return: 1.58%
+統一實-Lump-Sum:
+	Total Return: -1.44%
+	Yearly Mean Return: -0.16%
+統一實-DCA:
+	Total Return: -18.51%
+	Yearly Mean Return: -2.25%
+華固-Lump-Sum:
+	Total Return: 117.46%
+	Yearly Mean Return: 9.02%
+華固-DCA:
+	Total Return: 79.31%
+	Yearly Mean Return: 6.70%
+中鼎-Lump-Sum:
+	Total Return: 85.52%
+	Yearly Mean Return: 7.11%
+中鼎-DCA:
+	Total Return: 7.74%
+	Yearly Mean Return: 0.83%
+東陽-Lump-Sum:
+	Total Return: 55.41%
+	Yearly Mean Return: 5.02%
+東陽-DCA:
+	Total Return: 26.28%
+	Yearly Mean Return: 2.63%
+士電-Lump-Sum:
+	Total Return: 53.33%
+	Yearly Mean Return: 4.86%
+士電-DCA:
+	Total Return: 31.86%
+	Yearly Mean Return: 3.12%
+技嘉-Lump-Sum:
+	Total Return: 209.70%
+	Yearly Mean Return: 13.38%
+技嘉-DCA:
+	Total Return: 69.60%
+	Yearly Mean Return: 6.05%
+建大-Lump-Sum:
+	Total Return: 99.38%
+	Yearly Mean Return: 7.97%
+建大-DCA:
+	Total Return: -6.81%
+	Yearly Mean Return: -0.78%
+微星-Lump-Sum:
+	Total Return: 785.08%
+	Yearly Mean Return: 27.41%
+微星-DCA:
+	Total Return: 119.11%
+	Yearly Mean Return: 9.11%
+超豐-Lump-Sum:
+	Total Return: 187.86%
+	Yearly Mean Return: 12.47%
+超豐-DCA:
+	Total Return: 66.44%
+	Yearly Mean Return: 5.82%
+大成-Lump-Sum:
+	Total Return: 220.45%
+	Yearly Mean Return: 13.81%
+大成-DCA:
+	Total Return: 103.89%
+	Yearly Mean Return: 8.24%
+台表科-Lump-Sum:
+	Total Return: 232.26%
+	Yearly Mean Return: 14.27%
+台表科-DCA:
+	Total Return: 87.41%
+	Yearly Mean Return: 7.23%
+Total Lump-Sum return:
+	Total Return: 114.75%
+	Yearly Mean Return: 7.24%
+Total DCA return:
+	Total Return: 42.84%
+	Yearly Mean Return: 3.75%
