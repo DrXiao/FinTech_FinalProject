@@ -18,7 +18,7 @@ dataset_test_file = 'test.csv'
 
 
 def dataset_company(dataset_train):
-    Filter = (dataset_train["年月"] == 200512)
+    Filter = (dataset_train["年月"] == 200412)
     curr_set = set(list(dataset_train[Filter]['簡稱']))
     selected_dataset = pd.DataFrame(columns=dataset_train.columns)
     for company in list(curr_set):
@@ -78,13 +78,6 @@ if __name__ == "__main__":
             dataset_test_info, dataset_test_trainable, left_index=True, right_index=True)
         test_info_data['ReturnMean_year_Label'] = test_pred
 
-    correct = 0
-
-    for idx in range(len(test_pred)):
-        if test_pred[idx] == dataset_test_label[idx]:
-            correct += 1
-    print('Accurancy :', correct / len(test_pred))
-
     stocks_dict = {}
     profits = {}
     years = []
@@ -106,7 +99,7 @@ if __name__ == "__main__":
                 if len(stocks_dict[row["簡稱"]]) < 2 and (row["收盤價(元)_年"] - stocks_dict[row["簡稱"]][0]) / stocks_dict[row["簡稱"]][0] > 0.10:  # 賣
                     stocks_dict[row["簡稱"]].append(row["收盤價(元)_年"])
                     profits[row["簡稱"]].append(row["收盤價(元)_年"])
-            elif len(stocks_dict) < 4:
+            elif (threshold * 1.2 - row["收盤價(元)_年"]) / (threshold * 1.2) > 0.05 and len(stocks_dict) < 4:
                 stocks_dict[row["簡稱"]] = [row["收盤價(元)_年"]]   # 買
                 profits[row["簡稱"]] = [row["收盤價(元)_年"]]
         if row["簡稱"] in stocks_dict.keys() and len(profits[row["簡稱"]]) < years_len:
@@ -117,7 +110,8 @@ if __name__ == "__main__":
 
     print(years)
     print(stocks_dict)
-    print(profits)
+    for profit in profits:
+        print(profit ,profits[profit])
     max_length = 0
     for key in profits:
         if len(profits[key]) > max_length:
