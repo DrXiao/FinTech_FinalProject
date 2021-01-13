@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     train_data, test_data, train_label, test_label = \
         train_test_split(dataset_trainable, dataset_label,
-                         test_size=0.5, shuffle=False)
+                         test_size=1, shuffle=False)
     train_label = train_label.astype('int')
     test_label = test_label.astype('int')
 
@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
     threshold = train_data['收盤價(元)_年'].sum() / len(train_data)
     # print(dataset_info)
-    select_mode = 1 # int(input('1. Train Test,\n2. Formal test\t: '))
+    select_mode = 2 # int(input('1. Train Test,\n2. Formal test\t: '))
     if select_mode == 1:
         test_pred = knn_obj.predict(test_data)
         test_info_data = pd.merge(
@@ -110,7 +110,8 @@ if __name__ == "__main__":
 
     print(years)
     print(stocks_dict)
-    print(profits)
+    for profit in profits:
+        print(profit ,profits[profit])
     max_length = 0
     for key in profits:
         if len(profits[key]) > max_length:
